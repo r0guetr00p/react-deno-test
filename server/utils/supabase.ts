@@ -1,0 +1,8 @@
+import { createClient, type SupabaseClient } from "@supabase/supabase-js";
+import { Database } from '#/database.types.ts';
+
+const supabaseUrl = Deno.env.get('VITE_SUPABASE_URL') || '';
+const supabaseKey = Deno.env.get('VITE_SUPABASE_ANON_KEY') || '';
+const supabase = createClient<Database>(supabaseUrl, supabaseKey);
+
+export default supabase as SupabaseClient<Database>;
